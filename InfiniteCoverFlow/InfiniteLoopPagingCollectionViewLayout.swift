@@ -20,6 +20,7 @@ class InfiniteLoopPagingCollectionViewLayout: UICollectionViewFlowLayout {
     override func prepareLayout() {
         scrollDirection = .Horizontal
         itemSize = cellSize
+        collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
     }
     
     override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
