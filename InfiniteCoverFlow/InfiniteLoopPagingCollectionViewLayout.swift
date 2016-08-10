@@ -41,8 +41,9 @@ class InfiniteLoopPagingCollectionViewLayout: UICollectionViewFlowLayout {
         return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
     }
     
-    func adjustXPosition() {
-        if let collectionView = self.collectionView {
+    func adjust(with factor: Int) {
+        if let collectionView = self.collectionView as? InfiniteLoopPagingCollectionView {
+            collectionView.factor = factor
             let centeringX = (collectionView.frame.width / 2) - (cellSize.width / 2)
             let offset = CGPoint(x: -centeringX, y: 0)
             collectionView.setContentOffset(offset, animated: false)

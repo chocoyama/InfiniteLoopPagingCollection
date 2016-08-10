@@ -10,7 +10,10 @@ import UIKit
 
 class InfiniteLoopPagingCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: InfiniteLoopPagingCollectionView!
+    private let factor = 5
+    private let itemCount = 5
+    
     private var layout: InfiniteLoopPagingCollectionViewLayout? {
         return collectionView.collectionViewLayout as? InfiniteLoopPagingCollectionViewLayout
     }
@@ -21,16 +24,16 @@ class InfiniteLoopPagingCollectionViewController: UIViewController, UICollection
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        layout?.adjustXPosition()
+        layout?.adjust(with: factor)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return itemCount * factor
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("InfiniteLoopPagingCollectionViewCell", forIndexPath: indexPath) as! InfiniteLoopPagingCollectionViewCell
-        cell.label.text = "\(indexPath.item + 1)"
+        cell.label.text = "\(indexPath.item % itemCount)"
         return cell
     }
     
