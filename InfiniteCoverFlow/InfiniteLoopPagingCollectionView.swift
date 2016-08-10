@@ -23,7 +23,6 @@ class InfiniteLoopPagingCollectionView: UICollectionView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print(contentOffset.x)
         layoutRecenter()
         
         guard contentSize.width > 0.0 && needsScrollToCenter else { return }
