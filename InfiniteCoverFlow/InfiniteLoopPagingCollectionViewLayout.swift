@@ -13,7 +13,7 @@ class InfiniteLoopPagingCollectionViewLayout: UICollectionViewFlowLayout {
     private(set) lazy var cellSize: CGSize = {
         let collectionViewFrameSize = self.collectionView?.frame.size ?? CGSize.zero
         let width = collectionViewFrameSize.width * (4 / 5)
-        let height = collectionViewFrameSize.height * (9 / 10)
+        let height = collectionViewFrameSize.height * (9.5 / 10)
         return CGSize(width: width, height: height)
     }()
     
