@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		804143CC1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804143CB1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift */; };
 		AD5E28F11D5A07C30011B957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E28F01D5A07C30011B957 /* AppDelegate.swift */; };
 		AD5E28F31D5A07C30011B957 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E28F21D5A07C30011B957 /* ViewController.swift */; };
 		AD5E28F61D5A07C30011B957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD5E28F41D5A07C30011B957 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		804143CB1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteLoopPagingCollectionView.swift; sourceTree = "<group>"; };
 		AD5E28ED1D5A07C30011B957 /* InfiniteCoverFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteCoverFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5E28F01D5A07C30011B957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD5E28F21D5A07C30011B957 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				AD5E29211D5A08FB0011B957 /* InfiniteLoopPagingCollectionViewController.swift */,
 				AD5E29231D5A0B8A0011B957 /* InfiniteLoopPagingCollectionViewLayout.swift */,
 				AD5E29251D5A17670011B957 /* InfiniteLoopPagingCollectionViewCell.swift */,
+				804143CB1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift */,
 			);
 			name = InfiniteLoopPagingCollection;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				AD5E29221D5A08FB0011B957 /* InfiniteLoopPagingCollectionViewController.swift in Sources */,
 				AD5E29241D5A0B8A0011B957 /* InfiniteLoopPagingCollectionViewLayout.swift in Sources */,
 				AD5E29261D5A17670011B957 /* InfiniteLoopPagingCollectionViewCell.swift in Sources */,
+				804143CC1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift in Sources */,
 				AD5E28F11D5A07C30011B957 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +510,7 @@
 				AD5E29171D5A07C40011B957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD5E29181D5A07C40011B957 /* Build configuration list for PBXNativeTarget "InfiniteCoverFlowTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +519,7 @@
 				AD5E291A1D5A07C40011B957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD5E291B1D5A07C40011B957 /* Build configuration list for PBXNativeTarget "InfiniteCoverFlowUITests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +528,7 @@
 				AD5E291D1D5A07C40011B957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
