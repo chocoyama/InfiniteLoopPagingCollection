@@ -13,6 +13,7 @@ class InfiniteLoopPagingCollectionViewController: UIViewController, UICollection
     @IBOutlet weak var collectionView: InfiniteLoopPagingCollectionView!
     private let factor = 5
     private let itemCount = 5
+    private let infiniteLoopPagingCollectionViewCellIdentifier = "InfiniteLoopPagingCollectionViewCell"
     
     private var layout: InfiniteLoopPagingCollectionViewLayout? {
         return collectionView.collectionViewLayout as? InfiniteLoopPagingCollectionViewLayout
@@ -20,6 +21,7 @@ class InfiniteLoopPagingCollectionViewController: UIViewController, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerCell()
     }
     
     override func viewDidLayoutSubviews() {
@@ -27,12 +29,17 @@ class InfiniteLoopPagingCollectionViewController: UIViewController, UICollection
         layout?.adjust(with: factor)
     }
     
+    private func registerCell() {
+        let nib = UINib.init(nibName: infiniteLoopPagingCollectionViewCellIdentifier, bundle: nil)
+        collectionView.registerNib(nib, forCellWithReuseIdentifier: infiniteLoopPagingCollectionViewCellIdentifier)
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemCount * factor
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("InfiniteLoopPagingCollectionViewCell", forIndexPath: indexPath) as! InfiniteLoopPagingCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(infiniteLoopPagingCollectionViewCellIdentifier, forIndexPath: indexPath) as! InfiniteLoopPagingCollectionViewCell
         cell.label.text = "\(indexPath.item % itemCount)"
         return cell
     }
