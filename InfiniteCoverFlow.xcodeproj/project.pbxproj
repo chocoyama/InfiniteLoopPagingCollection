@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		804143CC1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804143CB1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift */; };
 		AD0FFC1F1D604E98003363C4 /* InfiniteLoopPagingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0FFC1E1D604E98003363C4 /* InfiniteLoopPagingCollectionViewCell.xib */; };
+		AD0FFC211D605177003363C4 /* InfiniteLoopPagingCollectionContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0FFC201D605177003363C4 /* InfiniteLoopPagingCollectionContainerViewController.swift */; };
+		AD0FFC231D6053B3003363C4 /* InfiniteLoopPagingCollectionMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0FFC221D6053B3003363C4 /* InfiniteLoopPagingCollectionMenuViewController.swift */; };
+		AD0FFC251D605D4E003363C4 /* ScrollSynchronizeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0FFC241D605D4E003363C4 /* ScrollSynchronizeDelegate.swift */; };
 		AD5E28F11D5A07C30011B957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E28F01D5A07C30011B957 /* AppDelegate.swift */; };
 		AD5E28F31D5A07C30011B957 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E28F21D5A07C30011B957 /* ViewController.swift */; };
 		AD5E28F61D5A07C30011B957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD5E28F41D5A07C30011B957 /* Main.storyboard */; };
@@ -42,6 +45,9 @@
 /* Begin PBXFileReference section */
 		804143CB1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteLoopPagingCollectionView.swift; sourceTree = "<group>"; };
 		AD0FFC1E1D604E98003363C4 /* InfiniteLoopPagingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfiniteLoopPagingCollectionViewCell.xib; sourceTree = "<group>"; };
+		AD0FFC201D605177003363C4 /* InfiniteLoopPagingCollectionContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteLoopPagingCollectionContainerViewController.swift; sourceTree = "<group>"; };
+		AD0FFC221D6053B3003363C4 /* InfiniteLoopPagingCollectionMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteLoopPagingCollectionMenuViewController.swift; sourceTree = "<group>"; };
+		AD0FFC241D605D4E003363C4 /* ScrollSynchronizeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollSynchronizeDelegate.swift; sourceTree = "<group>"; };
 		AD5E28ED1D5A07C30011B957 /* InfiniteCoverFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteCoverFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5E28F01D5A07C30011B957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD5E28F21D5A07C30011B957 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +153,9 @@
 				AD5E29251D5A17670011B957 /* InfiniteLoopPagingCollectionViewCell.swift */,
 				AD0FFC1E1D604E98003363C4 /* InfiniteLoopPagingCollectionViewCell.xib */,
 				804143CB1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift */,
+				AD0FFC201D605177003363C4 /* InfiniteLoopPagingCollectionContainerViewController.swift */,
+				AD0FFC221D6053B3003363C4 /* InfiniteLoopPagingCollectionMenuViewController.swift */,
+				AD0FFC241D605D4E003363C4 /* ScrollSynchronizeDelegate.swift */,
 			);
 			name = InfiniteLoopPagingCollection;
 			sourceTree = "<group>";
@@ -284,10 +293,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD0FFC211D605177003363C4 /* InfiniteLoopPagingCollectionContainerViewController.swift in Sources */,
+				AD0FFC251D605D4E003363C4 /* ScrollSynchronizeDelegate.swift in Sources */,
 				AD5E28F31D5A07C30011B957 /* ViewController.swift in Sources */,
 				AD5E29221D5A08FB0011B957 /* InfiniteLoopPagingCollectionViewController.swift in Sources */,
 				AD5E29241D5A0B8A0011B957 /* InfiniteLoopPagingCollectionViewLayout.swift in Sources */,
 				AD5E29261D5A17670011B957 /* InfiniteLoopPagingCollectionViewCell.swift in Sources */,
+				AD0FFC231D6053B3003363C4 /* InfiniteLoopPagingCollectionMenuViewController.swift in Sources */,
 				804143CC1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift in Sources */,
 				AD5E28F11D5A07C30011B957 /* AppDelegate.swift in Sources */,
 			);

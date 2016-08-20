@@ -10,12 +10,7 @@ import UIKit
 
 class InfiniteLoopPagingCollectionViewLayout: UICollectionViewFlowLayout {
     
-    private(set) lazy var cellSize: CGSize = {
-        let collectionViewFrameSize = self.collectionView?.frame.size ?? CGSize.zero
-        let width = collectionViewFrameSize.width * (4 / 5)
-        let height = collectionViewFrameSize.height * (9.5 / 10)
-        return CGSize(width: width, height: height)
-    }()
+    private var cellSize = CGSize.zero
     
     override func prepareLayout() {
         scrollDirection = .Horizontal
@@ -41,12 +36,14 @@ class InfiniteLoopPagingCollectionViewLayout: UICollectionViewFlowLayout {
         return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
     }
     
-    func adjust(with factor: Int) {
+    func adjust(with factor: Int, cellSize: CGSize) {
         if let collectionView = self.collectionView as? InfiniteLoopPagingCollectionView {
             collectionView.factor = factor
             let centeringX = (collectionView.frame.width / 2) - (cellSize.width / 2)
             let offset = CGPoint(x: -centeringX, y: 0)
             collectionView.setContentOffset(offset, animated: false)
+            
+            self.cellSize = cellSize
         }
     }
 }

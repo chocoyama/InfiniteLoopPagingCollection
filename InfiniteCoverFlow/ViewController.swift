@@ -22,7 +22,7 @@ class ViewController: UIViewController {
 
     @IBAction func didTappedButton(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "InfiniteLoopPagingCollection", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("InfiniteLoopPagingCollectionViewController")
+        let vc = storyboard.instantiateViewControllerWithIdentifier("InfiniteLoopPagingCollectionContainerViewController")
         presentViewController(vc, animated: true, completion: nil)
     }
 

@@ -1,17 +1,17 @@
 //
-//  InfiniteLoopPagingCollectionViewController.swift
+//  InfiniteLoopPagingCollectionMenuViewController.swift
 //  InfiniteCoverFlow
 //
-//  Created by 横山 拓也 on 2016/08/09.
+//  Created by 横山 拓也 on 2016/08/14.
 //  Copyright © 2016年 jp.co.chocoyama. All rights reserved.
 //
 
 import UIKit
 
-class InfiniteLoopPagingCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class InfiniteLoopPagingCollectionMenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     weak var scrollSynchronizeDelegate: ScrollSynchronizeDelegate?
-    
+
     @IBOutlet weak var collectionView: InfiniteLoopPagingCollectionView!
     private let factor = 5
     private let itemCount = 10
@@ -23,7 +23,7 @@ class InfiniteLoopPagingCollectionViewController: UIViewController, UICollection
     
     private(set) lazy var cellSize: CGSize = {
         let collectionViewFrameSize = self.collectionView?.frame.size ?? CGSize.zero
-        let width = collectionViewFrameSize.width * (4 / 5)
+        let width = collectionViewFrameSize.width * (1 / 5)
         let height = collectionViewFrameSize.height * (9.5 / 10)
         let size = CGSize(width: width, height: height)
         return size
@@ -38,7 +38,7 @@ class InfiniteLoopPagingCollectionViewController: UIViewController, UICollection
         super.viewDidLayoutSubviews()
         layout?.adjust(with: factor, cellSize: cellSize)
     }
-    
+
     private func registerCell() {
         let nib = UINib.init(nibName: infiniteLoopPagingCollectionViewCellIdentifier, bundle: nil)
         collectionView.registerNib(nib, forCellWithReuseIdentifier: infiniteLoopPagingCollectionViewCellIdentifier)
@@ -58,21 +58,8 @@ class InfiniteLoopPagingCollectionViewController: UIViewController, UICollection
         scrollSynchronizeDelegate?.didTappedCell(self, indexPath: indexPath)
     }
     
-    var prevContentOffset = CGPoint.zero
-    
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        prevContentOffset = scrollView.contentOffset
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let dx = round(scrollView.contentOffset.x - prevContentOffset.x)
-        prevContentOffset = scrollView.contentOffset
-        scrollSynchronizeDelegate?.noticeScrollViewDidScroll(self, dx: dx)
-    }
-    
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
         scrollSynchronizeDelegate?.noticeScrollViewDidScrollEnd(self)
     }
+    
 }
-
-
