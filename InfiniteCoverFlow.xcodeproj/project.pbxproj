@@ -92,6 +92,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80AAFD3D1FF0A5540047DCB2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AD0FFC201D605177003363C4 /* InfiniteLoopPagingCollectionContainerViewController.swift */,
+				AD5E29211D5A08FB0011B957 /* InfiniteLoopPagingCollectionViewController.swift */,
+				AD0FFC221D6053B3003363C4 /* InfiniteLoopPagingCollectionMenuViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		80AAFD3E1FF0A5640047DCB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD5E29251D5A17670011B957 /* InfiniteLoopPagingCollectionViewCell.swift */,
+				AD0FFC1E1D604E98003363C4 /* InfiniteLoopPagingCollectionViewCell.xib */,
+				804143CB1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		80AAFD3F1FF0A5830047DCB2 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				AD5E29231D5A0B8A0011B957 /* InfiniteLoopPagingCollectionViewLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		AD5E28E41D5A07C30011B957 = {
 			isa = PBXGroup;
 			children = (
@@ -147,14 +175,10 @@
 		AD5E291E1D5A08690011B957 /* InfiniteLoopPagingCollection */ = {
 			isa = PBXGroup;
 			children = (
+				80AAFD3F1FF0A5830047DCB2 /* Layout */,
+				80AAFD3E1FF0A5640047DCB2 /* View */,
+				80AAFD3D1FF0A5540047DCB2 /* Controller */,
 				AD5E291F1D5A08C80011B957 /* InfiniteLoopPagingCollection.storyboard */,
-				AD5E29211D5A08FB0011B957 /* InfiniteLoopPagingCollectionViewController.swift */,
-				AD5E29231D5A0B8A0011B957 /* InfiniteLoopPagingCollectionViewLayout.swift */,
-				AD5E29251D5A17670011B957 /* InfiniteLoopPagingCollectionViewCell.swift */,
-				AD0FFC1E1D604E98003363C4 /* InfiniteLoopPagingCollectionViewCell.xib */,
-				804143CB1D5AA4E80081D367 /* InfiniteLoopPagingCollectionView.swift */,
-				AD0FFC201D605177003363C4 /* InfiniteLoopPagingCollectionContainerViewController.swift */,
-				AD0FFC221D6053B3003363C4 /* InfiniteLoopPagingCollectionMenuViewController.swift */,
 				AD0FFC241D605D4E003363C4 /* ScrollSynchronizeDelegate.swift */,
 			);
 			name = InfiniteLoopPagingCollection;
@@ -447,6 +471,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.chocoyama.InfiniteCoverFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -458,6 +483,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.chocoyama.InfiniteCoverFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -469,6 +495,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.chocoyama.InfiniteCoverFlowTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InfiniteCoverFlow.app/InfiniteCoverFlow";
 			};
 			name = Debug;
@@ -481,6 +508,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.chocoyama.InfiniteCoverFlowTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InfiniteCoverFlow.app/InfiniteCoverFlow";
 			};
 			name = Release;

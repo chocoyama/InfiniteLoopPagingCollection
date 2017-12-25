@@ -10,12 +10,12 @@ import UIKit
 
 class InfiniteLoopPagingCollectionView: UICollectionView {
 
-    var factor = 1
+    var factor = 0
     private var needsScrollToCenter = true
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
+    } 
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -31,11 +31,11 @@ class InfiniteLoopPagingCollectionView: UICollectionView {
         var x: CGFloat = 0.0
         
         while i <= 0 {
-            let indexPath = NSIndexPath(forItem: i, inSection: 0)
-            guard let attribute = collectionViewLayout.layoutAttributesForItemAtIndexPath(indexPath) else { break }
+            let indexPath = IndexPath(item: i, section: 0)
+            guard let attribute = collectionViewLayout.layoutAttributesForItem(at: indexPath) else { break }
             var minimumInterItemSpacing: CGFloat = 0.0
             if let delegateFlowLayout = delegate as? UICollectionViewDelegateFlowLayout {
-                minimumInterItemSpacing = delegateFlowLayout.collectionView?(self, layout: collectionViewLayout, minimumInteritemSpacingForSectionAtIndex: 0) ?? 0.0
+                minimumInterItemSpacing = delegateFlowLayout.collectionView?(self, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: 0) ?? 0.0
             } else if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
                 minimumInterItemSpacing = flowLayout.minimumInteritemSpacing
             }

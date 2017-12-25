@@ -12,19 +12,19 @@ class InfiniteLoopPagingCollectionViewLayout: UICollectionViewFlowLayout {
     
     private var cellSize = CGSize.zero
     
-    override func prepareLayout() {
-        scrollDirection = .Horizontal
+    override func prepare() {
+        scrollDirection = .horizontal
         itemSize = cellSize
         collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
     }
     
-    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         let collectionViewBounds = collectionView?.bounds ?? CGRect.zero
         let targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionViewBounds.size.width, height: collectionViewBounds.size.height)
-        let attributes = layoutAttributesForElementsInRect(targetRect)
+        let attributes = layoutAttributesForElements(in: targetRect)
         
-        var offsetAdjustment = CGFloat.max
-        let horizontalOffset = proposedContentOffset.x + ((UIScreen.mainScreen().bounds.width - cellSize.width) / 2)
+        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
+        let horizontalOffset = proposedContentOffset.x + ((UIScreen.main.bounds.width - cellSize.width) / 2)
         
         attributes?.forEach{
             let itemOffset = $0.frame.origin.x

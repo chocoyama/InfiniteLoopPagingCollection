@@ -20,10 +20,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func didTappedButton(sender: AnyObject) {
+    @IBAction func didTappedButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "InfiniteLoopPagingCollection", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("InfiniteLoopPagingCollectionContainerViewController")
-        presentViewController(vc, animated: true, completion: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "InfiniteLoopPagingCollectionContainerViewController")
+        present(vc, animated: true, completion: nil)
     }
 
 }

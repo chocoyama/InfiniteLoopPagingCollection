@@ -8,32 +8,24 @@
 
 import UIKit
 
-class InfiniteLoopPagingCollectionContainerViewController: UIViewController, ScrollSynchronizeDelegate {
+class InfiniteLoopPagingCollectionContainerViewController: UIViewController {
 
     private var contentsVC: InfiniteLoopPagingCollectionViewController?
     private var menuVC: InfiniteLoopPagingCollectionMenuViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? InfiniteLoopPagingCollectionViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? InfiniteLoopPagingCollectionViewController {
             contentsVC = vc
             vc.scrollSynchronizeDelegate = self
-        } else if let vc = segue.destinationViewController as? InfiniteLoopPagingCollectionMenuViewController {
+        } else if let vc = segue.destination as? InfiniteLoopPagingCollectionMenuViewController {
             menuVC = vc
             vc.scrollSynchronizeDelegate = self
         }
-        "InfiniteLoopPagingCollectionViewControllerSegue"
-        "InfiniteLoopPagingCollectionMenuViewControllerSegue"
     }
     
     enum State {
@@ -42,9 +34,12 @@ class InfiniteLoopPagingCollectionContainerViewController: UIViewController, Scr
     }
     private var state: State = .normal
 
+}
+
+extension InfiniteLoopPagingCollectionContainerViewController: ScrollSynchronizeDelegate {
     // TODO: 初期表示に呼ばれてしまってずれる。お互いを呼び合って無限ループに陥る
     func noticeScrollViewDidScroll(from: UIViewController, dx: CGFloat) {
-        if let vc = from as? InfiniteLoopPagingCollectionViewController where state == .normal {
+        if let vc = from as? InfiniteLoopPagingCollectionViewController, state == .normal {
             let currentOffset = menuVC?.collectionView.contentOffset ?? CGPoint.zero
             let destinationDx = dx * ((menuVC?.cellSize.width ?? 0.0) / vc.cellSize.width)
             let nextOffset = CGPoint(x: currentOffset.x + destinationDx, y: currentOffset.y)
@@ -54,17 +49,16 @@ class InfiniteLoopPagingCollectionContainerViewController: UIViewController, Scr
     
     func noticeScrollViewDidScrollEnd(from: UIViewController) {
         if let contentsVC = from as? InfiniteLoopPagingCollectionViewController, let menuVC = menuVC {
-            let center = contentsVC.view.convertPoint(contentsVC.view.center, toView: contentsVC.collectionView)
-            let rawIndexPath = contentsVC.collectionView.indexPathForItemAtPoint(center) ?? NSIndexPath(forItem: 0, inSection: 0)
-            menuVC.collectionView.scrollToItemAtIndexPath(rawIndexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+            let center = contentsVC.view.convert(contentsVC.view.center, to: contentsVC.collectionView)
+            let rawIndexPath = contentsVC.collectionView.indexPathForItem(at: center) ?? IndexPath(item: 0, section: 0)
+            menuVC.collectionView.scrollToItem(at: rawIndexPath, at: .centeredHorizontally, animated: true)
         }
         state = .normal
     }
     
-    func didTappedCell(vc: UIViewController, indexPath: NSIndexPath) {
+    func didTappedCell(vc: UIViewController, indexPath: IndexPath) {
         state = .synchronizing
-        contentsVC?.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
-        menuVC?.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+        contentsVC?.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        menuVC?.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
-
 }
