@@ -52,7 +52,7 @@ class InfiniteLoopPagingCollectionView: UICollectionView {
         let contentWidth = contentSize.width
         let centerOffsetX = contentWidth / 2.0
         
-        let distanceFromCenterX = fabs(currentOffset.x - centerOffsetX) // 絶対値
+        let distanceFromCenterX = abs(currentOffset.x - centerOffsetX) // 絶対値
         
         let allCellWidth = CGFloat(contentWidth / CGFloat(factor))
         

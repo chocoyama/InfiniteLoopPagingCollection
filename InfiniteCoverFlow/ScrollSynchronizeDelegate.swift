@@ -18,8 +18,8 @@ protocol ScrollSynchronizable: class {
     var factor: Int { get }
     var itemCount: Int { get }
     var cellSize: CGSize { get }
-    weak var scrollSynchronizeDelegate: ScrollSynchronizeDelegate? { get set }
-    weak var collectionView: InfiniteLoopPagingCollectionView! { get set }
+    var scrollSynchronizeDelegate: ScrollSynchronizeDelegate? { get set }
+    var collectionView: InfiniteLoopPagingCollectionView! { get set }
 }
 
 extension ScrollSynchronizable where Self: UIViewController, Self: UICollectionViewDataSource {
